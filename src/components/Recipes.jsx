@@ -56,7 +56,7 @@ function Recipes() {
       <Grid display={"flex"} gap={2}>
         <Box
           sx={{
-            backgroundImage: 'url("/recepImg/placeholder (6).png")',
+            backgroundImage: 'url("/Healthy-Food/recepImg/placeholder (6).png")',
             backgroundRepeat: "no-repeat",
             backgroundSize: "contain",
             width: "70%",
@@ -182,7 +182,7 @@ function Recipes() {
 
           <Box
             sx={{
-              backgroundImage: 'url("/recepImg/placeholder (7).png")',
+              backgroundImage: 'url("/Healthy-Food/recepImg/placeholder (7).png")',
               backgroundRepeat: "no-repeat",
               backgroundSize: "contain",
             }}

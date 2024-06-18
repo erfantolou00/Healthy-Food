@@ -65,11 +65,11 @@ function About() {
             <ArrowBack />
           </Button>
           <ImageList gap={40}>
-            <img src="/foodImg.png" />
+            <img src="/Healthy-Food/foodImg.png" />
 
             <Box
               component={"img"}
-              src="/foodImg2.png"
+              src="/Healthy-Food/foodImg2.png"
               sx={{
                 display: { xs: "none", sm: "none", md: "block" },
               }}

@@ -20,7 +20,7 @@ export default function Main() {
           sx={{
             width: "100%",
             height: "100%",
-            backgroundImage: `url(./placeholder.png)`,
+            backgroundImage: `url(/Healthy-Food/placeholder.png)`,
             backgroundRepeat: "no-repeat",
             backgroundAttachment: "scroll",
           }}
