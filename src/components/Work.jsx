@@ -77,7 +77,8 @@ function Work() {
                   height: "200px",
                   width: "250px",
                 }}
-                onClick={() => bgcolorHandler(item.title)}
+                onMouseEnter={() => bgcolorHandler(item.title)}
+                onMouseLeave={() => bgcolorHandler(item.title)}
               >
                 <Typography
                   variant="h6"

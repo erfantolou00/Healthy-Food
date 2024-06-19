@@ -22,7 +22,7 @@ function Dishes() {
   const theme = useTheme();
 
   return (
-    <Box mx={6}>
+    <Box mx={6} id="target-section-Menu">
       <Grid
         display={"flex"}
         justifyContent={"center"}

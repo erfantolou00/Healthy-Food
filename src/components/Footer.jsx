@@ -13,7 +13,7 @@ function Footer() {
   const color = theme.palette;
   return (
     // The Box component here is used as the outermost container for the footer, with a background color and top margin.
-    <Box bgcolor={theme.palette.background.paper} mt={10}>
+    <Box bgcolor={theme.palette.background.paper} mt={10} id="target-section-contacts">
       {/* Grid container to hold and align the footer elements */}
       <Grid container wrap="nowrap" p={8}>
         <Grid
@@ -132,6 +132,7 @@ function Footer() {
 
       <Grid
         display={"flex"}
+        container
         direction={"column"}
         alignItems={"center"}
         mt={6}

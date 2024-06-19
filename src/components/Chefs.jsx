@@ -14,7 +14,7 @@ import { dataCardChefs } from "../Data/dataCardChefs";
 function Chefs() {
   const theme = useTheme();
   return (
-    <Box>
+    <Box id="target-section-Chefs">
       <Grid
         display={"flex"}
         justifyContent={"center"}

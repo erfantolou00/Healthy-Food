@@ -62,12 +62,13 @@ export default function Header() {
           </Stack>
           <Stack direction={"row"}>
             {itemHeader.map((item) => (
-              <Button key={item} sx={{
+              <Button key={item}  href={`#target-section-${item}`}  sx={{
                 color: item === 'Menu' ? color.text.secondary : color.text.primary,
                 fontWeight:700,
                 fontSize: theme.typography.caption,
                 letterSpacing: 0.1,
                 mr:2
+                
                 
               }} >{item}</Button>
             ))}

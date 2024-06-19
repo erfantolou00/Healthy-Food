@@ -22,6 +22,7 @@ function Recipes() {
         justifyContent={"center"}
         alignItems={"center"}
         mt={16}
+         id="target-section-Recipes"
       >
         <Typography
           variant="h1"
