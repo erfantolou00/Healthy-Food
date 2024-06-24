@@ -54,12 +54,12 @@ function Recipes() {
           bgcolor: theme.palette.primary.dark,
         }}
       />
-      <Grid display={"flex"} gap={2}>
-        <Box
+      <Grid container display={"flex"} justifyContent={'center'}  gap={2} columns={{ xs: 4, sm: 8, md: 12 }} >
+        <Grid item xs={4} sm={4} md={5}
           sx={{
             backgroundImage: 'url("/Healthy-Food/recepImg/placeholder (6).png")',
             backgroundRepeat: "no-repeat",
-            backgroundSize: "contain",
+            backgroundSize: "cover",
             width: "70%",
           }}
         >
@@ -120,10 +120,10 @@ function Recipes() {
               />
             </Stack>
           </Stack>
-        </Box>
+        </Grid>
 
-        <Stack gap={2.7}>
-          <Box
+        <Grid item xs={4} sm={4} md={5}>
+          <Grid
             bgcolor={theme.palette.background.paper}
             pt={4}
             px={3}
@@ -179,13 +179,13 @@ function Recipes() {
                 />
               </Stack>
             </Grid>
-          </Box>
+          </Grid>
 
-          <Box
+          <Grid
             sx={{
               backgroundImage: 'url("/Healthy-Food/recepImg/placeholder (7).png")',
               backgroundRepeat: "no-repeat",
-              backgroundSize: "contain",
+              backgroundSize: "cover",
             }}
             p={4}
             borderRadius={2}
@@ -238,9 +238,9 @@ function Recipes() {
                 />
               </Stack>
             </Grid>
-          </Box>
+          </Grid>
 
-          <Box
+          <Grid
             bgcolor={theme.palette.primary.dark}
             pt={4}
             px={3}
@@ -295,8 +295,8 @@ function Recipes() {
                 />
               </Stack>
             </Grid>
-          </Box>
-        </Stack>
+          </Grid>
+        </Grid>
       </Grid>
     </React.Fragment>
   );

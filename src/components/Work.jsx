@@ -62,7 +62,8 @@ function Work() {
         mt={8}
         columns={{ xs: 4, sm: 8, md: 12 }}
         rowSpacing={5}
-        justifyContent={"space-between"}
+        justifyContent={"center"}
+        gap={1}
       >
         {dataCardWork.map((item) => (
           <Stack key={item.id}>

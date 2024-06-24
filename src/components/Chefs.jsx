@@ -52,9 +52,16 @@ function Chefs() {
         }}
       />
 
-      <Grid display={"flex"} justifyContent={"space-between"} mt={9}>
+      <Grid
+        container
+        display={"flex"}
+        gap={3}
+        justifyContent={"center"}
+        mt={9}
+        columns={{ xs: 4, sm: 8, md: 12 }}
+      >
         {dataCardChefs.map((item) => (
-          <Stack key={item.id}>
+          <Grid key={item.id} item xs={2} sm={4} md={3}>
             <Grid display={"flex"} gap={3} alignItems={"center"}>
               <Avatar
                 alt="Chef"
@@ -73,13 +80,13 @@ function Chefs() {
               </Stack>
             </Grid>
             <ImageList>
-              <ImageListItem sx={{ flexDirection: "row", gap: 4 }}>
+              <ImageListItem sx={{ flexDirection: "row", gap: 1 }}>
                 <img src={item.bigImg} />
                 <img src={item.imgs} />
                 <img src={item.imgs2} />
               </ImageListItem>
             </ImageList>
-          </Stack>
+          </Grid>
         ))}
       </Grid>
     </Box>

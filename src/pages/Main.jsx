@@ -15,7 +15,7 @@ export default function Main() {
   const color = theme.palette;
   return (
     <>
-      <Container bgcolor={color.background.default}>
+      <Container maxWidth="xl" bgcolor={color.background.default}>
         <Box
           sx={{
             width: "100%",

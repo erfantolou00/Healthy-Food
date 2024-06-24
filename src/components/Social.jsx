@@ -59,8 +59,8 @@ function Social() {
         }}
       />
 
-      <Stack direction={"row"} spacing={1}>
-        <Grid
+      <Grid  display={'flex'} container justifyContent={'center'} gap={2} columns={{ xs: 4, sm: 8, md: 13 }}>
+        <Grid item xs={4} sm={8} md={4}
           bgcolor={theme.palette.background.paper}
           borderRadius={2}
           p={2}
@@ -113,7 +113,7 @@ function Social() {
           </Stack>
         </Grid>
 
-        <Grid
+        <Grid item xs={4} sm={8} md={4}
           bgcolor={theme.palette.background.paper}
           borderRadius={2}
           p={2}
@@ -172,7 +172,7 @@ function Social() {
           </Stack>
         </Grid>
 
-        <Box
+        <Grid item xs={4} sm={8} md={4}
           bgcolor={theme.palette.background.paper}
           borderRadius={2}
           p={2}
@@ -221,8 +221,8 @@ function Social() {
               adipiscing
             </Typography>
           </Stack>
-        </Box>
-      </Stack>
+        </Grid>
+      </Grid>
     </React.Fragment>
   );
 }

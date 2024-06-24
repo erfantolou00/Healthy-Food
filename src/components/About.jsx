@@ -8,9 +8,27 @@ import {
   Typography,
   useTheme,
 } from "@mui/material";
+import React, { useState } from "react";
+
+const dataSlider = [
+  { id: 0, src: "/Healthy-Food/foodImg.png" },
+  { id: 1, src: "/Healthy-Food/foodImg2.png" },
+  { id: 2, src: "/Healthy-Food/placeholder (1).png" },
+  { id: 3, src: "/Healthy-Food/placeholder (2).png" },
+];
 
 function About() {
   const theme = useTheme();
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  function nextIndexHandler() {
+    const newIndex = (currentIndex + 1) % dataSlider.length;
+    setCurrentIndex(newIndex);
+  }
+  function prevIndexHandler() {
+    const newIndex = (currentIndex - 1) % dataSlider.length;
+    setCurrentIndex(newIndex);
+  }
   return (
     <Stack
       bgcolor={theme.palette.background.paper}
@@ -45,7 +63,13 @@ function About() {
         </Typography>
       </Grid>
 
-      <Grid container display={"flex"} mt={8} direction={"column"} alignItems={"center"}>
+      <Grid
+        container
+        display={"flex"}
+        mt={8}
+        direction={"column"}
+        alignItems={"center"}
+      >
         <Typography
           fontSize={"16px"}
           textAlign={"center"}
@@ -56,33 +80,42 @@ function About() {
           aliquip aliquip consectetur voluptate est. Eu minim dolore laboris
           enim mollit voluptate irure esse aliquip.
         </Typography>
-        <Stack direction={"row"} alignItems={"center"} my={8}>
+        <Grid display={"flex"} alignItems={"center"} my={8}>
           <Button
             sx={{
               height: "50px",
             }}
+            onClick={prevIndexHandler}
           >
             <ArrowBack />
           </Button>
-          <ImageList gap={40}>
-            <img src="/Healthy-Food/foodImg.png" />
-
-            <Box
-              component={"img"}
-              src="/Healthy-Food/foodImg2.png"
-              sx={{
-                display: { xs: "none", sm: "none", md: "block" },
-              }}
-            />
-          </ImageList>
+          <Grid display={"flex"} justifyContent={"center"} gap={4}>
+            {dataSlider.slice(currentIndex, currentIndex + 2).map((slide) => (
+              <React.Fragment key={slide.id}>
+                {currentIndex + 2 <= dataSlider.length || currentIndex > 0 ? (
+                  <Grid
+                    component={"img"}
+                    src={slide.src}
+                    sx={{
+                      maxWidth: "40%",
+                    }}
+                  />
+                  
+                ) : (
+                  console.log('fdg')
+                )}
+              </React.Fragment>
+            ))}
+          </Grid>
           <Button
             sx={{
               height: "50px",
             }}
+            onClick={nextIndexHandler}
           >
             <ArrowForward />
           </Button>
-        </Stack>
+        </Grid>
       </Grid>
     </Stack>
   );

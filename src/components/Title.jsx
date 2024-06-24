@@ -1,6 +1,7 @@
 import { Stack, Typography, useTheme } from "@mui/material";
 import { OrderButton } from "./OrderButton";
 
+// import { DigitalMenu } from "../pages/DigitalMenu";
 export default function Title() {
   const theme = useTheme();
   return (
@@ -15,7 +16,6 @@ export default function Title() {
       </Typography>
       <Typography
         fontSize={theme.typography.caption}
-        mx={40}
         fontWeight={300}
         letterSpacing={0.1}
       >
@@ -23,11 +23,12 @@ export default function Title() {
         <br />
         marinating, so you can cook a fresh homemade dinner in just 15 minutes.
       </Typography>
+      
       <OrderButton
-        sx={{
-          mt: 6,
-          p: "16px 36px",
-        }}
+      sx={{
+        mt: 6,
+        p: "16px 36px",
+      }}
       >
         Order Now
       </OrderButton>
