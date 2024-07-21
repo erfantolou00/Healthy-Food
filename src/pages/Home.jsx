@@ -10,7 +10,7 @@ import Recipes from "../components/Recipes";
 import Social from "../components/Social";
 import Footer from "../components/Footer";
 
-export default function Main() {
+export default function Home() {
   const theme = useTheme();
   const color = theme.palette;
   return (

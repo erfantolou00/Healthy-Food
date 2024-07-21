@@ -17,6 +17,7 @@ import { OrderButton } from "./OrderButton";
 
 import { dataCard } from "../Data/dataCard";
 import StarRating from "./StarRating";
+import { Link } from "react-router-dom";
 
 function Dishes() {
   const theme = useTheme();
@@ -137,6 +138,7 @@ function Dishes() {
                     size={24}
                     color={theme.palette.primary.light}
                   />
+                  <Link to='/Healthy-Food/DigitalMenu'>
                   <OrderButton
                     sx={{
                       p: "12px 28px",
@@ -148,7 +150,7 @@ function Dishes() {
                     }}
                   >
                     ORDER
-                  </OrderButton>
+                  </OrderButton></Link>
                 </CardActions>
               </Card>
             </Grid>

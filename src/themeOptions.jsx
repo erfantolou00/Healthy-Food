@@ -8,6 +8,7 @@ export const theme =createTheme ({
       light: "#5fd27c",
       dark: "#00831f",
       contrastText: "rgba(10,10,10,0.87)",
+      hint: "rgba(48, 48, 48, 1)",
     },
     secondary: {
       main: "rgba(255, 255, 255, 1)",

@@ -1,5 +1,6 @@
 import { Stack, Typography, useTheme } from "@mui/material";
 import { OrderButton } from "./OrderButton";
+import { Link } from "react-router-dom";
 
 // import { DigitalMenu } from "../pages/DigitalMenu";
 export default function Title() {
@@ -24,14 +25,16 @@ export default function Title() {
         marinating, so you can cook a fresh homemade dinner in just 15 minutes.
       </Typography>
       
+      <Link to='/Healthy-Food/DigitalMenu' >
       <OrderButton
       sx={{
         mt: 6,
         p: "16px 36px",
       }}
+
       >
         Order Now
-      </OrderButton>
+      </OrderButton></Link>
     </Stack>
   );
 }
