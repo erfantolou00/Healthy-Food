@@ -17,7 +17,6 @@ import {
 import { TabContext, TabList, TabPanel } from "@mui/lab";
 import {
   AddBox,
-  AddCircleRounded,
   DinnerDining,
   LocalPizza,
   RemoveCircleRounded,
@@ -25,26 +24,44 @@ import {
   RestaurantMenu,
 } from "@mui/icons-material";
 import TabPanel1 from "../components/TabPanel1";
-import TabPanel2 from "../components/TabPanel2";
 import ShoppingCard from "../components/ShoppingCard";
-import TabPanel3 from "../components/TabPanel3";
+import DrawerShoppingCard from "../components/DrawerShoppingCard";
 
 function DigitalMenu() {
   const theme = useTheme();
   const [value, setValue] = useState("1");
 
+  //state toggle shopping card in xs, sm size
+  const [showShop, setShowShop] = useState(false);
+
+  //Handle Count of item in the shopping card
+  const [countItem, setCountItem] = useState(0);
+
   //Handle Pass data between Child component
   const [foodData, setFoodData] = useState([]);
   const [hasFood, setHasFood] = useState(false);
+
+  const displayMd = {xs:'none' , sm: 'none' , md: 'flex'}
+  const displayXsSm = {xs:'flex' , sm: 'flex' , md: 'none'}
+
+
   function handleFoodData(newFood) {
-    setFoodData((foods) => [...foods, { ...newFood, count: 1 }]);
+    setFoodData((foods) => [...foods, { ...newFood, count: 1 , showCountCard: false}]);
     setHasFood(true);
   }
-
 
   const handleChange = (e, newValue) => {
     setValue(newValue);
   };
+
+  //Handle function for toggle Drawer in xs, sm size
+  function handleOpenDrawer() {
+    setShowShop(true);
+  }
+
+  function handleCloseDrawer() {
+    setShowShop(false);
+  }
 
   return (
     <Container
@@ -58,7 +75,11 @@ function DigitalMenu() {
         backgroundSize: "cover",
       }}
     >
-      <AppNavbar value={value} />
+      <AppNavbar
+        value={value}
+        countItem={countItem}
+        handleOpenDrawer={handleOpenDrawer}
+      />
 
       <TabContext value={value}>
         <Box
@@ -72,19 +93,36 @@ function DigitalMenu() {
             <Tab label="Pasta" value="3" icon={<DinnerDining />} />
           </TabList>
         </Box>
-        <Grid display={"flex"} container columns={{ xs: 4, sm: 8, md: 12 }}>
-
+        <Grid display={"flex"} container columns={{ xs: 4, sm: 8, md: 12 }} >
           <ShoppingCard
+            foodData={foodData}
+            setFoodData={setFoodData}
+            hasFood={hasFood}
+            setHasFood={setHasFood}
+            showShop={showShop}
+            displayMd={displayMd}
+            displayXsSm={displayXsSm}
+          />
+
+          <DrawerShoppingCard
+            showShop={showShop}
+            handleCloseDrawer={handleCloseDrawer}
             foodData={foodData}
             setFoodData={setFoodData}
             hasFood={hasFood}
             setHasFood={setHasFood}
           />
 
-          <Grid item xs={4} sm={4} md={8}>
-            <TabPanel1 addFoodToCard={handleFoodData} />
-            <TabPanel2 addFoodToCard={handleFoodData}/>
-            <TabPanel3 addFoodToCard={handleFoodData} />
+          <Grid item xs={4} sm={8} md={8}>
+            <TabPanel1
+              addFoodToCard={handleFoodData}
+              value={value}
+              countItem={countItem}
+              setCountItem={setCountItem}
+              setFoodData={setFoodData}
+              foodData={foodData}
+              
+            />
           </Grid>
         </Grid>
       </TabContext>

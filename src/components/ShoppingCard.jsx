@@ -19,7 +19,7 @@ import {
 } from "@mui/icons-material";
 import EmptyCard from "./EmptyCard";
 
-function ShoppingCard({ foodData, setFoodData, hasFood, setHasFood }) {
+function ShoppingCard({ foodData, setFoodData, hasFood, setHasFood ,displayMd ,showShop,displayXsSm }) {
   const theme = useTheme();
   const [closeItem, setCloseItem] = useState(false);
   const [open, setOpen] = useState(false);
@@ -97,12 +97,16 @@ function ShoppingCard({ foodData, setFoodData, hasFood, setHasFood }) {
       p={4}
       border={"2px solid grey"}
       borderRadius={"8px"}
+      display={showShop ? displayXsSm : displayMd}
+      flexDirection={'column'}
+      maxWidth={{xs: '100%' , sm: '100%', md:'30%' }}
+      
     >
       {/* Conditions based on the number of products in the shopping cart */}
 
       {hasFood ? (
         // Purchase information card
-        <Stack>
+        <Stack >
           <Stack mb={3} p={3}>
             <Stack direction={"row"} alignItems={"flex-end"}>
               <AppLogo />
@@ -112,11 +116,10 @@ function ShoppingCard({ foodData, setFoodData, hasFood, setHasFood }) {
           <Divider />
 
           {foodData.map((data) => (
-            <>
+            <React.Fragment key={data.id}>
               <Stack
                 direction={"row"}
-                justifyContent={"space-between"}
-                key={data.id}
+                justifyContent={"space-between"}                   
                 onMouseEnter={handleCloseEnter}
                 onMouseLeave={handleCloseLeave}
                 p={2}
@@ -151,7 +154,7 @@ function ShoppingCard({ foodData, setFoodData, hasFood, setHasFood }) {
                 </Stack>
               </Stack>
               <Divider />
-            </>
+            </React.Fragment>
           ))}
 
           <Stack direction={"row"} justifyContent={"space-between"} p={2}>

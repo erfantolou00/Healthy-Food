@@ -1,7 +1,7 @@
 export const dataMenuTab3 = [
     {
         id: 0,
-        food: "Spaghetti with green pesto",
+        food: "Green pesto",
         src: "/Healthy-Food/menuImg/pasta/1.jpg",
         price: "40",
         desc: "Spaghetti - green pesto sauce - special spice",
@@ -25,7 +25,7 @@ export const dataMenuTab3 = [
     },
     {
         id: 3,
-        food: "Spaghetti with red pesto",
+        food: "Red pesto",
         src: "/Healthy-Food/menuImg/pasta/4.jpg",
         price: "70",
         desc: "Spaghetti - red pesto sauce - special spice",
