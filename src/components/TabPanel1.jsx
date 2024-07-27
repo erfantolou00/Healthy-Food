@@ -130,7 +130,7 @@ function TabPanel1({ addFoodToCard, value, setCountItem, countItem}) {
               container
               direction={"column"}
               justifyContent={"center"}
-              gap={"30%"}
+              gap={3}
             >
               <Typography color={theme.palette.primary.light}>
                 {data.food}
