@@ -1,6 +1,6 @@
 export const dataMenuTab1 = [
     {
-        id: 0,
+        id: Math.random(),
         food: "Rolex Salad",
         src: "/Healthy-Food/menuImg/65d8baaf6c1e9.jpeg",
         price: "40",
@@ -9,7 +9,7 @@ export const dataMenuTab1 = [
         showCountCard: false
     },
     {
-        id: 1,
+        id: Math.random(),
         food: "Medi Salad",
         src: "/Healthy-Food/menuImg/65df6f3bbf8d9.jpeg",
         price: "50",
@@ -18,7 +18,7 @@ export const dataMenuTab1 = [
         showCountCard: false
     },
     {
-        id: 2,
+        id: Math.random(),
         food: "Season Salad",
         src: "/Healthy-Food/menuImg/65d8baaf6c1e9.jpeg",
         price: "20",
@@ -27,7 +27,7 @@ export const dataMenuTab1 = [
         showCountCard: false
     },
     {
-        id: 3,
+        id: Math.random(),
         food: "Fruit Salad",
         src: "/Healthy-Food/menuImg/654bad2be80d3.jpeg",
         price: "10",
@@ -36,7 +36,7 @@ export const dataMenuTab1 = [
         showCountCard: false
     },
     {
-        id: 4,
+        id: Math.random(),
         food: "Green Salad",
         src: "/Healthy-Food/menuImg/656fab5c05ecb.jpeg",
         price: "60",
@@ -45,7 +45,7 @@ export const dataMenuTab1 = [
         showCountCard: false
     },
     {
-        id: 5,
+        id: Math.random(),
         food: "Spinach Salad",
         src: "/Healthy-Food/menuImg/656fab5c05ecb.jpeg",
         price: "60",

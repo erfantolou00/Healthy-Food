@@ -27,8 +27,7 @@ function ShoppingCard({
   displayMd,
   showShop,
   displayXsSm,
-  setCountItem,
-  dispatch
+  setCountItem
 }) {
   const theme = useTheme();
   const [closeItem, setCloseItem] = useState(false);
@@ -45,12 +44,29 @@ function ShoppingCard({
   );
 
    // Update add & remove items
-  const handleDecremented = (foodItem) => {
-    dispatch({ type: 'REMOVE_FOOD', payload: foodItem });
+  const handleDecremented = (foodId) => {
+    const updatedFoods = foodData.map((food) => {
+      if (food.id === foodId && food.count > 0) {
+        return { ...food, count: food.count - 1 };
+      }
+      return food;
+    }).filter(food => food.count > 0);
+
+    setFoodData(updatedFoods);
+    setHasFood(updatedFoods.length > 0);
+    setCountItem((prevCount) => prevCount - 1); // update countItem
   };
 
-  const handleIncremented = (foodItem) => {
-    dispatch({ type: 'ADD_FOOD', payload: foodItem });
+  const handleIncremented = (foodId) => {
+    const updatedFoods = foodData.map((food) => {
+      if (food.id === foodId) {
+        return { ...food, count: food.count + 1 };
+      }
+      return food;
+    });
+
+    setFoodData(updatedFoods);
+    setCountItem((prevCount) => prevCount + 1); // update countItem
   };
 
   // Controlling the mouse event on items
@@ -99,7 +115,7 @@ function ShoppingCard({
                       aria-label="delete"
                       size="small"
                       sx={{ display: closeItem ? "inline-block" : "none" }}
-                      onClick={() => handleDecremented(data)}
+                      onClick={() => handleDecremented(data.id)}
                     >
                       <Close fontSize="inherit" />
                     </IconButton>
@@ -111,13 +127,13 @@ function ShoppingCard({
                 </Stack>
 
                 <Stack direction={"row"} alignItems={"center"}>
-                  <IconButton onClick={() => handleDecremented(data)}>
+                  <IconButton onClick={() => handleDecremented(data.id)}>
                     <RemoveCircleRounded fontSize="small" />
                   </IconButton>
 
                   <Typography>{data.count}</Typography>
 
-                  <IconButton onClick={() => handleIncremented(data)}>
+                  <IconButton onClick={() => handleIncremented(data.id)}>
                     <AddCircleRounded fontSize="small" />
                   </IconButton>
                 </Stack>

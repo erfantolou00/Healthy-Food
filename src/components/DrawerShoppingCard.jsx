@@ -9,22 +9,22 @@ function DrawerShoppingCard({
   setFoodData,
   hasFood,
   setHasFood,
+  setCountItem,
+  dispatch
 }) {
-  const theme = useTheme()
+  const theme = useTheme();
   return (
-    <Stack display={{ md: "none" }} >
-      <Drawer
-        open={showShop}
-        onClose={handleCloseDrawer}
-        
-      >
+    <Stack display={{ md: "none" }}>
+      <Drawer open={showShop} onClose={handleCloseDrawer}>
         <Box width={"350px"} bgcolor={theme.palette.background.paper}>
           <ShoppingCard
-            foodData={foodData} 
+            foodData={foodData}
             setFoodData={setFoodData}
             hasFood={hasFood}
             setHasFood={setHasFood}
             showShop={showShop}
+            setCountItem={setCountItem}
+            dispatch={dispatch}
           />
         </Box>
       </Drawer>

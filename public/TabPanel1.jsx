@@ -14,15 +14,39 @@ import {
   Typography,
   useTheme,
 } from "@mui/material";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useReducer, useState } from "react";
 import { dataMenuTab1 } from "../Data/dataMenuTab1";
 import { dataMenuTab2 } from "../Data/dataMenuTab2";
 import { dataMenuTab3 } from "../Data/dataMenuTab3";
 
-function TabPanel1({ value, dispatch, foodData }) {
+const reducer = (state, action) => {
+  switch (action.type) {
+    case "increment_food":
+      return state.map((item) =>
+        item.id === action.payload.id
+          ? { ...item, count: item.count + 1, showCountCard: true }
+          : item
+      );
+    case "decrement_food":
+      return state.map((item) =>
+        item.id === action.payload && item.count > 0
+          ? {
+              ...item,
+              count: item.count - 1,
+              showCountCard: item.count - 1 > 0,
+            }
+          : item
+      );
+    case "reset":
+      return action.payload;
+    default:
+      throw new Error("Unknown action: " + action.type);
+  }
+};
+
+function TabPanel1({ addFoodToCard, value, setCountItem }) {
   const theme = useTheme();
   const [dataMenu, setDataMenu] = useState(dataMenuTab1);
-  const [addedItems, setAddedItems] = useState({});
 
   useEffect(() => {
     switch (value) {
@@ -40,35 +64,33 @@ function TabPanel1({ value, dispatch, foodData }) {
     }
   }, [value]);
 
-  // Update local state when dataMenu changes
+  // initialState for Reducer func
+  const initialState = dataMenu.map((item) => ({
+    ...item,
+    count: 0,
+    showCountCard: false,
+  }));
+
+  const [state, dispatch] = useReducer(reducer, initialState);
+
   useEffect(() => {
-    const initialAddedItems = {};
-    dataMenu.forEach((item) => {
-      initialAddedItems[item.id] = foodData.some((fd) => fd.id === item.id);
-    });
-    setAddedItems(initialAddedItems);
-  }, [dataMenu, foodData]);
+    // Update state when dataMenu changes
+    dispatch({ type: "reset", payload: initialState });
+  }, [dataMenu]);
 
-  const handleAddFood = (food) => {
-    dispatch({ type: "ADD_FOOD", payload: food });
-    setAddedItems((prevState) => ({
-      ...prevState,
-      [food.id]: true,
-    }));
+  useEffect(() => {
+    addFoodToCard(state);
+  }, [state, addFoodToCard]);
+
+  // Update state when dataMenu changes
+  const handleIncremented = (item) => {
+    dispatch({ type: "increment_food", payload: item });
+    setCountItem((prevCount) => prevCount + 1); // Update countItem
   };
 
-  const handleIncrement = (foodItem) => {
-    dispatch({ type: 'ADD_FOOD', payload: foodItem });
-  };
-
-  const handleDecrement = (foodItem) => {
-    dispatch({ type: 'REMOVE_FOOD', payload: foodItem });
-    if (foodItem.count === 1) {
-      setAddedItems((prevState) => ({
-        ...prevState,
-        [foodItem.id]: false,
-      }));
-    }
+  const handleDecremented = (id) => {
+    dispatch({ type: "decrement_food", payload: id });
+    setCountItem((prevCount) => Math.max(prevCount - 1, 0)); // Ensure countItem doesn't go below 0
   };
 
   return (
@@ -79,7 +101,7 @@ function TabPanel1({ value, dispatch, foodData }) {
         justifyContent={"center"}
         gap={{ xs: 2 }}
       >
-        {dataMenu.map((data) => (
+        {state.map((data) => (
           <Grid
             key={data.id}
             container
@@ -133,11 +155,11 @@ function TabPanel1({ value, dispatch, foodData }) {
                   aria-label="Add"
                   size="medium"
                   onClick={() => {
-                    handleAddFood(data);
+                    handleIncremented(data);
                   }}
                   sx={{
                     mr: 2,
-                    display: addedItems[data.id] ? "none" : "inline-flex",
+                    display: data.showCountCard ? "none" : "inline-flex",
                   }}
                 >
                   <AddBox
@@ -148,19 +170,19 @@ function TabPanel1({ value, dispatch, foodData }) {
 
                 {/* Add or remove Button */}
                 <Stack
-                  display={addedItems[data.id] ? "flex" : "none"}
+                  display={data.showCountCard ? "flex" : "none"}
                   direction={"row"}
                   alignItems={"center"}
                 >
-                  <IconButton onClick={() => handleDecrement(data)}>
+                  <IconButton onClick={() => handleDecremented(data.id)}>
                     <RemoveCircleRounded fontSize="small" />
                   </IconButton>
 
-                  <Typography>{foodData.find(item => item.id === data.id)?.count || 0}</Typography>
+                  <Typography>{data.count}</Typography>
 
                   <IconButton
                     onClick={() => {
-                      handleIncrement(data);
+                      handleIncremented(data);
                     }}
                   >
                     <AddCircleRounded fontSize="small" />

@@ -1,6 +1,6 @@
 export const dataMenuTab2 = [
     {
-        id: 0,
+        id: Math.random(),
         food: "PURE Pizza",
         src: "/Healthy-Food/menuImg//pizza/edypwydm.bxt_560x350.jpg",
         price: "40",
@@ -8,7 +8,7 @@ export const dataMenuTab2 = [
         count: 0
     },
     {
-        id: 1,
+        id: Math.random(),
         food: " Napl Pizza",
         src: "/Healthy-Food/menuImg/pizza/gzio1vm4.11d_560x350.jpg",
         price: "80",
@@ -16,7 +16,7 @@ export const dataMenuTab2 = [
         count: 0
     },
     {
-        id: 2,
+        id: Math.random(),
         food: "Artichoke Pizza",
         src: "/Healthy-Food/menuImg/pizza/e0wieqxd.fwy_560x350.jpg",
         price: "100",
@@ -24,7 +24,7 @@ export const dataMenuTab2 = [
         count: 0
     },
     {
-        id: 3,
+        id: Math.random(),
         food: "Vegan Napl Pizza",
         src: "/Healthy-Food/menuImg/pizza/05wlt1jg.rgh_560x350.jpg",
         price: "70",
@@ -32,7 +32,7 @@ export const dataMenuTab2 = [
         count: 0
     },
     {
-        id: 4,
+        id: Math.random(),
         food: "Iranian Pizza",
         src: "/Healthy-Food/menuImg/pizza/yx3gs2hj.0h2_560x350.jpg",
         price: "60",
@@ -40,7 +40,7 @@ export const dataMenuTab2 = [
         count: 0
     },
     {
-        id: 5,
+        id: Math.random(),
         food: "Rocola Pizza",
         src: "/Healthy-Food/menuImg/pizza/uwgstkph.cww_560x350.jpg",
         price: "60",

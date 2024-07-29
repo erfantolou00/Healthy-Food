@@ -1,6 +1,6 @@
 export const dataMenuTab3 = [
     {
-        id: 0,
+        id: Math.random(),
         food: "Green pesto",
         src: "/Healthy-Food/menuImg/pasta/1.jpg",
         price: "40",
@@ -8,7 +8,7 @@ export const dataMenuTab3 = [
         count: 0
     },
     {
-        id: 1,
+        id: Math.random(),
         food: "PURE Rigatoni",
         src: "/Healthy-Food/menuImg/pasta/2.jpg",
         price: "80",
@@ -16,7 +16,7 @@ export const dataMenuTab3 = [
         count: 0
     },
     {
-        id: 2,
+        id: Math.random(),
         food: "Vegetable Pasta",
         src: "/Healthy-Food/menuImg/pasta/3.jpg",
         price: "100",
@@ -24,7 +24,7 @@ export const dataMenuTab3 = [
         count: 0
     },
     {
-        id: 3,
+        id: Math.random(),
         food: "Red pesto",
         src: "/Healthy-Food/menuImg/pasta/4.jpg",
         price: "70",
@@ -32,7 +32,7 @@ export const dataMenuTab3 = [
         count: 0
     },
     {
-        id: 4,
+        id: Math.random(),
         food: "Alfredo Penne",
         src: "/Healthy-Food/menuImg/pasta/5.jpg",
         price: "60",
@@ -40,7 +40,7 @@ export const dataMenuTab3 = [
         count: 0
     },
     {
-        id: 5,
+        id: Math.random(),
         food: "Seitans Nodel",
         src: "/Healthy-Food/menuImg/pasta/6.jpg",
         price: "110",
